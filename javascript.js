@@ -63,10 +63,17 @@ function playGame(){
         playRound(humanSelection, computerSelection)  
     }
     
-    return{
-        humanScore: humanScore,
-        computerScore: computerScore
+    console.log("Your Score:" + humanScore)
+    console.log("Computer's Score:" + computerScore)
+
+    if (humanScore > computerScore) {
+        console.log("You won overall!");
+    } else if (computerScore > humanScore) {
+        console.log("You lost overall!");
+    } else {
+        console.log("It's an overall draw!");
     }
+
 }
 
-console.log(playGame())
+playGame()

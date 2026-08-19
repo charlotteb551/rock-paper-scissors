@@ -19,6 +19,10 @@ const score = document.querySelector("#score")
 
 //Plays one round
 function playRound(humanChoice, computerChoice){
+    if(humanScore === 5 || computerScore === 5) {
+        return;
+    } 
+
     if(humanChoice === "rock"){
         if(computerChoice === "rock"){
             results.textContent ="It's a draw!";
@@ -53,6 +57,12 @@ function playRound(humanChoice, computerChoice){
 
     score.textContent = "Your Score: " + humanScore + 
                         " | Computer's Score: " + computerScore;
+
+    if (humanScore === 5){
+        results.textContent = "Congratulations, you win the game!";
+    }else if (computerScore === 5){
+        results.textContent = "Computer wins the game! Better luck next time.";
+    }
 
 }
 

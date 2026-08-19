@@ -14,42 +14,45 @@ function getComputerChoice(){
 let humanScore = 0;
 let computerScore = 0;
 
+const results = document.querySelector("#results");
+const score = document.querySelector("#score")
+
 //Plays one round
 function playRound(humanChoice, computerChoice){
     if(humanChoice === "rock"){
         if(computerChoice === "rock"){
-            console.log("It's a draw!");
+            results.textContent ="It's a draw!";
         }else if(computerChoice === "paper"){
-            console.log("You lose!");
+            results.textContent = "You lose! Paper beats Rock.";
             computerScore += 1;
         }else{
-            console.log("You win!");
+            results.textContent = "You win! Rock beats Scissors.";
             humanScore += 1;
         }
     }else if(humanChoice === "paper"){
         if(computerChoice === "paper"){
-            console.log("It's a draw!");
+            results.textContent ="It's a draw!";
         }else if(computerChoice === "scissors"){
-            console.log("You lose!");
+            results.textContent ="You lose! Scissors beat Paper.";
             computerScore += 1;
         }else{
-            console.log("You win!");
+            results.textContent ="You win! Paper beats Rock.";
             humanScore += 1;
         }
     }else{
         if(computerChoice === "scissors"){
-            console.log("It's a draw!");
+            results.textContent="It's a draw!";
         }else if(computerChoice === "rock"){
-            console.log("You lose!");
+            results.textContent="You lose! Rock beats Scissors.";
             computerScore += 1;
         }else{
-            console.log("You win!");
+            results.textContent="You win! Scissors beats Paper.";
             humanScore += 1;
         }
     }
 
-    console.log("Your Score:" + humanScore);
-    console.log("Computer's Score:" + computerScore);
+    score.textContent = "Your Score: " + humanScore + 
+                        " | Computer's Score: " + computerScore;
 
 }
 

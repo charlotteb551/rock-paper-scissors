@@ -1,3 +1,7 @@
+const results = document.querySelector("#results");
+const score = document.querySelector("#score");
+const computer = document.querySelector("#computer");
+
 //Gets Computers Selection
 function getComputerChoice(){
     const a = Math.random();
@@ -14,43 +18,42 @@ function getComputerChoice(){
 let humanScore = 0;
 let computerScore = 0;
 
-const results = document.querySelector("#results");
-const score = document.querySelector("#score")
-
 //Plays one round
 function playRound(humanChoice, computerChoice){
     if(humanScore === 5 || computerScore === 5) {
         return;
     } 
 
+    computer.textContent = "Computer's Weapon: " + computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
+
     if(humanChoice === "rock"){
         if(computerChoice === "rock"){
-            results.textContent ="It's a draw!";
+            results.innerHTML ="It's a draw!";
         }else if(computerChoice === "paper"){
-            results.textContent = "You lose! Paper beats Rock.";
+            results.innerHTML = "You lose!<br>Paper beats Rock.";
             computerScore += 1;
         }else{
-            results.textContent = "You win! Rock beats Scissors.";
+            results.innerHTML = "You win!<br>Rock beats Scissors.";
             humanScore += 1;
         }
     }else if(humanChoice === "paper"){
         if(computerChoice === "paper"){
-            results.textContent ="It's a draw!";
+            results.innerHTML ="It's a draw!";
         }else if(computerChoice === "scissors"){
-            results.textContent ="You lose! Scissors beat Paper.";
+            results.innerHTML ="You lose!<br>Scissors beat Paper.";
             computerScore += 1;
         }else{
-            results.textContent ="You win! Paper beats Rock.";
+            results.innerHTML ="You win!<br>Paper beats Rock.";
             humanScore += 1;
         }
     }else{
         if(computerChoice === "scissors"){
-            results.textContent="It's a draw!";
+            results.innerHTML="It's a draw!";
         }else if(computerChoice === "rock"){
-            results.textContent="You lose! Rock beats Scissors.";
+            results.innerHTML="You lose!<br>Rock beats Scissors.";
             computerScore += 1;
         }else{
-            results.textContent="You win! Scissors beats Paper.";
+            results.innerHTML="You win!<br>Scissors beats Paper.";
             humanScore += 1;
         }
     }
